@@ -1,9 +1,9 @@
 const { connection } = require('mongoose');
 
-const {pool} = require('pg');
+const {Pool} = require('pg');
 require('dotenv').config();
 
-const pool = new pool({
+const pool = new Pool({
     connectionString: procces.env.DATABASE_URL,
     //Beberapa layanan cloud (termasuk Neon) memerlukan SSL
     ssl: {
