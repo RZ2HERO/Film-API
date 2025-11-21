@@ -38,3 +38,17 @@ app.post(`/auth/register`, async (req, res, next) => {
         next(err);
     }
 });
+
+
+app.use((req, res) => {
+    res.status(500).json({error: `Rute tidak ditemukan`});
+});
+
+app.use((err, req, res, next) => {
+    console.error(`[SERVER ERROR]`, err.stack);
+    res.status(500).json({error: `Terjadi kesalahan pada Server`});
+});
+
+app.listen(PORT, `0.0.0.0`,() => {
+    console.log(`Server Aktif di http://localhost:${PORT}`);
+});
