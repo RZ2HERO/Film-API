@@ -4,7 +4,7 @@ const {Pool} = require('pg');
 require('dotenv').config();
 
 const pool = new Pool({
-    connectionString: procces.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
     //Beberapa layanan cloud (termasuk Neon) memerlukan SSL
     ssl: {
         rejectUnauthorized: false

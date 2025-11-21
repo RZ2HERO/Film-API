@@ -3,12 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const db = require ('./db.js');
 const bcrypt = require('bcryptjs');
-const hwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const{authenticateToken, authorizeRole} =
 require('./middleware/auth.js');
 
-const app = express;
-const PORT = procces.env.PORT || 3300;
+const app = express();
+const PORT = process.env.PORT || 3300;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 //===MIDDLEWARE===
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 //===Routes===
-app,get(`/status`, (req, res) => {
+app.get(`/status`, (req, res) => {
     res.json({ ok:true, service: `film-api`});
 });
 
